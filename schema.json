@@ -1,0 +1,51 @@
+{
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "files": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "path": {
+                        "type": "string"
+                    },
+                    "variables": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "key": {
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "url": {
+                        "type": "string"
+                    },
+                    "template": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "version": {
+            "type": "string"
+        },
+        "devDependencies": {
+            "type": "string"
+        },
+        "dependencies": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "name"
+    ]
+}
