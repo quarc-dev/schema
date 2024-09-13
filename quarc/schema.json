@@ -1,0 +1,126 @@
+{
+  "type": "object",
+  "properties": {
+    "files": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              },
+              "template": {
+                "type": "string"
+              },
+              "variables": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "defaultValue": {
+                    "type": "string"
+                  },
+                  "required": {
+                    "type": "boolean"
+                  }
+                },
+                "required": ["key"]
+              },
+              "action": {
+                "type": "string"
+              }
+            },
+            "required": ["path", "template"]
+          },
+          {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              },
+              "variables": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "defaultValue": {
+                    "type": "string"
+                  },
+                  "required": {
+                    "type": "boolean"
+                  }
+                },
+                "required": ["key"]
+              },
+              "action": {
+                "type": "string"
+              }
+            },
+            "required": ["path", "url"]
+          }
+        ]
+      }
+    },
+    "devDependencies": {
+      "type": "object"
+    },
+    "dependencies": {
+      "type": "object"
+    },
+    "language": {
+      "type": "string"
+    },
+    "preScripts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "quarcMinVersion": {
+      "type": "string"
+    },
+    "quarcMaxVersion": {
+      "type": "string"
+    },
+    "postScripts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "name": {
+      "type": "string",
+      "pattern": "^@[a-z0-9_-]+/[a-z0-9_-]+$"
+    },
+    "linkedQuarcs": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "quarc": {
+                "type": "string"
+              },
+              "registry": {
+                "type": "string"
+              }
+            },
+            "required": ["quarc"]
+          },
+          {
+            "type": "string"
+          }
+        ]
+      }
+    }
+  },
+  "required": ["version", "name"]
+}
