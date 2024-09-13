@@ -1,51 +1,109 @@
 {
     "type": "object",
     "properties": {
-        "name": {
-            "type": "string"
-        },
         "files": {
             "type": "array",
             "items": {
-                "type": "object",
-                "properties": {
-                    "path": {
-                        "type": "string"
-                    },
-                    "variables": {
-                        "type": "array",
-                        "items": {
-                            "type": "object",
-                            "properties": {
-                                "key": {
-                                    "type": "string"
+                "oneOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "path": {
+                                "type": "string"
+                            },
+                            "template": {
+                                "type": "string"
+                            },
+                            "variables": {
+                                "type": "object",
+                                "properties": {
+                                    "key": {
+                                        "type": "string"
+                                    },
+                                    "defaultValue": {
+                                        "type": "string"
+                                    },
+                                    "required": {
+                                        "type": "boolean"
+                                    }
                                 },
-                                "value": {
-                                    "type": "string"
-                                }
+                                "required": [
+                                    "key"
+                                ]
+                            },
+                            "action": {
+                                "type": "string"
                             }
-                        }
+                        },
+                        "required": [
+                            "path",
+                            "template"
+                        ]
                     },
-                    "url": {
-                        "type": "string"
-                    },
-                    "template": {
-                        "type": "string"
+                    {
+                        "type": "object",
+                        "properties": {
+                            "path": {
+                                "type": "string"
+                            },
+                            "url": {
+                                "type": "string"
+                            },
+                            "variables": {
+                                "type": "object",
+                                "properties": {
+                                    "key": {
+                                        "type": "string"
+                                    },
+                                    "defaultValue": {
+                                        "type": "string"
+                                    },
+                                    "required": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "required": [
+                                    "key"
+                                ]
+                            },
+                            "action": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "path",
+                            "url"
+                        ]
                     }
-                }
+                ]
             }
         },
         "version": {
-            "type": "string"
+            "type": "string",
+            "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$"
         },
         "devDependencies": {
-            "type": "string"
+            "type": "object"
         },
         "dependencies": {
+            "type": "object"
+        },
+        "language": {
             "type": "string"
+        },
+        "installScripts": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "name": {
+            "type": "string",
+            "pattern": "^@[a-z0-9_-]+/[a-z0-9_-]+$"
         }
     },
     "required": [
+        "version",
         "name"
     ]
 }
