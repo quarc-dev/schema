@@ -69,10 +69,42 @@
       }
     },
     "devDependencies": {
-      "type": "object"
+      "type": "object",
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "package": {
+              "type": "string"
+            },
+            "language": {
+              "type": "string"
+            }
+          }
+        }
+      ]
     },
     "dependencies": {
-      "type": "object"
+      "type": "object",
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "package": {
+              "type": "string"
+            },
+            "language": {
+              "type": "string"
+            }
+          }
+        }
+      ]
     },
     "language": {
       "type": "string"
@@ -122,5 +154,5 @@
       }
     }
   },
-  "required": ["version", "name"]
+  "required": ["name"]
 }

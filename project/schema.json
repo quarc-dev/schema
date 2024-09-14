@@ -1,0 +1,66 @@
+{
+  "type": "object",
+  "properties": {
+    "quarcs": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "quarc": {
+                "type": "string"
+              },
+              "registry": {
+                "type": "string"
+              }
+            },
+            "required": ["quarc"]
+          },
+          {
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "registries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "handle": {
+            "type": "string"
+          },
+          "registry": {
+            "type": "string"
+          },
+          "registry-type": {
+            "type": "string"
+          }
+        },
+        "required": ["handle", "registry"]
+      }
+    },
+    "packageManagers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "language": "string",
+          "packageManager": "string",
+          "customizeCommands": {
+            "type": "object",
+            "properties": {
+              "save": {
+                "type": "string"
+              },
+              "saveDev": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
